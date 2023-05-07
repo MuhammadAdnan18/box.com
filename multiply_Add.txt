@@ -1,0 +1,45 @@
+package com.example.sum4
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import org.w3c.dom.Text
+
+class MainActivity : AppCompatActivity() {
+
+lateinit var num1:EditText
+lateinit var num2:EditText
+lateinit var add_btn:Button
+lateinit var result:TextView
+    var num3=0
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+
+      num1=findViewById(R.id.num1)
+       add_btn=findViewById(R.id.add_btn)
+        result=findViewById(R.id.result)
+        num2=findViewById(R.id.num2)
+        var number1=0
+        var number2=0
+        add_btn.setOnClickListener {
+
+
+
+            number1=num1.text.toString().toInt()
+            number2=num2.text.toString().toInt()
+
+            result.text=""+number1 * number2
+
+
+        }
+
+
+    }
+}

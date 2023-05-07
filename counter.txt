@@ -1,0 +1,47 @@
+package com.example.counterapp1
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
+
+class MainActivity : AppCompatActivity() {
+//create the variables with components id such as button1,2 and click
+    lateinit var button1:Button
+    lateinit var button2:Button
+    lateinit var click:TextView
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+//link them with the xml file screen
+        button1=findViewById(R.id.button1)
+        button2=findViewById(R.id.button2)
+        click=findViewById(R.id.click)
+
+        //variable to count no. of clicks
+         var timesclicked=0
+
+
+        button1.setOnClickListener {
+
+        //by clicking button1 count will increase
+            timesclicked +=1
+
+click.text=timesclicked.toString()
+
+
+        }
+
+        button2.setOnClickListener {
+
+            //by clicking button1 count will decrease
+            timesclicked-=1
+
+            click.text=timesclicked.toString()
+        }
+
+
+
+
+    }
+}

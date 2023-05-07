@@ -1,0 +1,26 @@
+package com.example.datapassing
+
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.provider.ContactsContract.CommonDataKinds.Email
+import android.widget.TextView
+
+class ShareScreen : AppCompatActivity() {
+    lateinit var email: TextView
+    lateinit var password:TextView
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_share_screen)
+
+        email=findViewById(R.id.email)
+        password=findViewById(R.id.password)
+//getting data from that intent we created on sendtada button
+        val emailReceived=intent.getStringExtra("email")
+        val passwordreceived =intent.getStringExtra("password")
+
+        email.text="email:"+emailReceived
+        password.text="password:"+passwordreceived
+
+    }
+}

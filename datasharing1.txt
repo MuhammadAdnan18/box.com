@@ -1,0 +1,42 @@
+package com.example.datapassing
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+//in this we will  create two screeens to show data passing from one screen to another
+
+//three variables will be used to pass data from logfin screen
+lateinit var editemailtext:EditText
+lateinit var editpasswordtext:EditText
+lateinit var send_data:Button
+
+
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        //asign respective IDs
+        editemailtext = findViewById(R.id.editemailtext)
+        editpasswordtext = findViewById(R.id.editpasswordtext)
+        send_data = findViewById(R.id.send_data)
+
+
+        //on click send data will create a new intentwhich will get data from editemail and editpasword and send it to second screen(sHAREScreen)
+        send_data.setOnClickListener {
+
+            startActivity(
+                Intent(this, ShareScreen::class.java)
+                    .putExtra("email", editemailtext.text.toString())
+                    .putExtra("password", editpasswordtext.text.toString())
+
+            )
+
+
+        }
+    }}
